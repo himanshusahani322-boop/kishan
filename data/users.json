@@ -1,0 +1,193 @@
+[
+  {
+    "id": "user_farmer_1",
+    "name": "Rameshwar Patel",
+    "phone": "+91 98260 44123",
+    "email": "rameshwar.patel@kisansaathi.in",
+    "passwordHash": "555ccd178150701a4e1c265d5a777b3893013043200ada7f2a94f165e869e193889398031fd03efd98ebe94ab11643772bc0a744638593b5f99f089f6555e394",
+    "salt": "883da16a76925fcd4743434af8de7069",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Narsinghpur",
+      "district": "Sehore",
+      "state": "Madhya Pradesh",
+      "pincode": "466001"
+    },
+    "isVerifiedFPO": true,
+    "fpoName": "Narmada Kisan Samriddhi FPO",
+    "rating": 4.85,
+    "totalRatingsCount": 142,
+    "joinedDate": "March 2023",
+    "createdAt": "2023-03-15T00:00:00.000Z"
+  },
+  {
+    "id": "user_buyer_1",
+    "name": "Vikramaditya Aggarwal",
+    "phone": "+91 98112 55981",
+    "email": "vikram.aggarwal@bharatagroexports.com",
+    "passwordHash": "ef6ffd3ff406c07511c74f05ba62e63ffc14a5eba6ecb6928c7965bac39b5bffb17124d02fc16e301e51bd9cd76d62466ee7c7752d017f5c8f77d279eeac91cf",
+    "salt": "11d65ccaf2f24e344deff9dec7af83f5",
+    "role": "buyer",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Azadpur Mandi Complex",
+      "district": "North West Delhi",
+      "state": "Delhi",
+      "pincode": "110033"
+    },
+    "businessName": "Bharat Agro Exports Ltd.",
+    "businessType": "Agri Commodity Wholesale Exporter",
+    "gstNumber": "07AAACB2194Q1Z8",
+    "rating": 4.9,
+    "totalRatingsCount": 318,
+    "joinedDate": "January 2022",
+    "createdAt": "2022-01-10T00:00:00.000Z"
+  },
+  {
+    "id": "user_admin_1",
+    "name": "Pooja Verma (Compliance Lead)",
+    "phone": "+91 94140 88219",
+    "email": "admin.compliance@kisansaathi.gov.in",
+    "passwordHash": "62e403c2f54d82bcee76a04de0b68e38835b53f57abe29b876414e323eda960b350e6117905de92fa29f1f8bf17f62d9a0c21b0d63ae98cf6dd8d2f2c383603e",
+    "salt": "175ea567dc71c14479b3fdc6dfaf4b52",
+    "role": "admin",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Krishi Bhawan",
+      "district": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001"
+    },
+    "rating": 5,
+    "totalRatingsCount": 500,
+    "joinedDate": "November 2021",
+    "createdAt": "2021-11-01T00:00:00.000Z"
+  },
+  {
+    "id": "user_farmer_1788890976385_695",
+    "name": "Harish Patel",
+    "phone": "+91 98765 43210",
+    "email": "harish.patel.1788890976319@kisansaathi.in",
+    "passwordHash": "f646729f439bc4610320002e8339e8fbccb69e7983a547abdb0a4b08cac18fb43850ae0a586b273caf0cad2cb3fc9c53114fbe8761ca1b8d6e9a334edc548206",
+    "salt": "cc67f2807f985268c047727436fe2911",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Rehti",
+      "district": "Sehore",
+      "state": "Madhya Pradesh",
+      "pincode": "466446"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-08T18:09:36.401Z"
+  },
+  {
+    "id": "user_farmer_1788891004555_177",
+    "name": "Harish Patel",
+    "phone": "+91 98100 44881",
+    "email": "harish.1004488@kisansaathi.in",
+    "passwordHash": "0fa5f38efa7174e21c78d4a9e5b1d723590c37309b442d9e825354e4f61d05176bd42088df213de9e578950dc3b9d9d95718339b0cc12dbe5f565da9befb5d0d",
+    "salt": "2c0d6f0021c2c4a93e22beca735243c5",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Rehti",
+      "district": "Sehore",
+      "state": "Madhya Pradesh",
+      "pincode": "466446"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-08T18:10:04.571Z"
+  },
+  {
+    "id": "user_admin_1788983417309_688",
+    "name": "Hacker Admin",
+    "phone": "+91 98989 89898",
+    "email": "hacker@test.com",
+    "passwordHash": "454fdc56a6d2581fa986a996fe503636c698fa3d1749154bc4a988208916d0e1da8cb53fedf51203c53ee4a1622a660c379170efc445fd38eaef6fd949b14500",
+    "salt": "477332562c1df2c946b3061eff0b079a",
+    "role": "admin",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Agri Trade Hub",
+      "district": "Central Delhi",
+      "state": "Delhi",
+      "pincode": "110001"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-09T19:50:17.327Z"
+  },
+  {
+    "id": "user_farmer_1788983417398_753",
+    "name": "Babulal Kushwaha",
+    "phone": "+91 98267 07512",
+    "email": "kisan_7075@testsaathi.in",
+    "passwordHash": "b7982a72e502787bbdb09a602d863321cfd6eb5c17542781a3be344a66c8575bf23b3fee15925b36ec4fda798b33431849565901277645e736e1fdf26732222a",
+    "salt": "b353f68d46e492545eb0f14a25f903a6",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Badi",
+      "district": "Raisen",
+      "state": "Madhya Pradesh",
+      "pincode": "464665"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-09T19:50:17.399Z"
+  },
+  {
+    "id": "user_farmer_1788983463918_121",
+    "name": "Babulal Kushwaha",
+    "phone": "+91 98267 98012",
+    "email": "kisan_7980@testsaathi.in",
+    "passwordHash": "267f78a11960480e7f2c575d32afbda79f36f69ebcbf676ba0eb313d72a7190d36b69579723f67c41e64feec8ce881c0a4fdf068b650c1ae859a8d970303c97b",
+    "salt": "cb61f75f4cadc8e14b5656343b03edac",
+    "role": "buyer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Badi",
+      "district": "Raisen",
+      "state": "Madhya Pradesh",
+      "pincode": "464665"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-09T19:51:04.055Z"
+  },
+  {
+    "id": "user_farmer_1788985305368_563",
+    "name": "Himanshu Sahani",
+    "phone": "+91 98073 53944",
+    "email": "himanshusahani322@gmail.com",
+    "passwordHash": "432e0af7886b0174277a71e6c82f244511476a1882a9ca2f9c16e673ab08ea193f29dadceec913c2b2f352f37cb276f1f4b5a940f13ae483de4a2deb855e0b7e",
+    "salt": "76994de362cbe35a6ba53e40123e4ad2",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "ghamapur",
+      "district": "jabalpur",
+      "state": "Madhya Pradesh",
+      "pincode": "466001"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-09T20:21:45.409Z"
+  }
+]

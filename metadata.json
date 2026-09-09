@@ -1,0 +1,6 @@
+{
+  "name": "Kisan Saathi",
+  "description": "Indian agriculture marketplace connecting farmers, buyers, and FPOs with crop listings, RFQ negotiations, logistics tracking, and AI advisory.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
