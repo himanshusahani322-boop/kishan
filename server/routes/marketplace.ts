@@ -764,7 +764,7 @@ marketplaceRouter.put('/farmer/orders/:id/dispatch', authenticateToken, requireR
       vehicleNumber,
       driverName: driverName || 'Commercial Driver',
       driverContactNumber,
-      pickupLocation: pickupLocation || existing.farmer?.location || 'Mandi Yard Gate 1',
+      pickupLocation: pickupLocation || (existing.farmer as typeof existing.farmer & { location?: string })?.location || 'Mandi Yard Gate 1',
       status: 'in_transit',
       dispatchedAt: new Date().toISOString(),
       ...(Array.isArray(dispatchDocuments) ? { documents: dispatchDocuments } : {})

@@ -456,6 +456,14 @@ export class KisanSaathiDatabase {
     return newUser;
   }
 
+  public updateUser(userId: string, updates: Partial<User>): User {
+    const user = this.indexes.usersById.get(userId);
+    if (!user) throw new Error(`User not found: ${userId}`);
+    Object.assign(user, updates, { updatedAt: new Date().toISOString() });
+    this.scheduleSave();
+    return user;
+  }
+
   public getFarmerProfile(userId: string): FarmerProfile | undefined {
     return this.indexes.farmerProfilesByUserId.get(userId);
   }

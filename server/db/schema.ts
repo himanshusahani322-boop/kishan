@@ -340,10 +340,12 @@ export interface Shipment {
   id: string;
   orderId: string; // FK -> Order.id
   transporter?: string;
+  transporterName?: string;
   logisticsPartnerName: string;
   vehicleNumber: string;
   driverName: string;
   driverPhone: string;
+  driverContactNumber?: string;
   pickupLocation?: string;
   deliveryLocation?: string;
   eWayBillNumber: string;
@@ -394,6 +396,7 @@ export interface Payment {
   escrowAccountId?: string;
   escrowReleasedAt?: string;
   payoutTransactionId?: string;
+  transactionReference?: string;
   paidAt?: string;
   createdAt: string;
   updatedAt: string;
