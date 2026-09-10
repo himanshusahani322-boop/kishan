@@ -189,5 +189,47 @@
     "totalRatingsCount": 1,
     "joinedDate": "September 2026",
     "createdAt": "2026-09-09T20:21:45.409Z"
+  },
+  {
+    "id": "user_farmer_1789017615475_180",
+    "name": "Baldev Test Farmer",
+    "phone": "+91 97657 92101",
+    "email": "baldev.test.1789017615369@kisansaathi.in",
+    "passwordHash": "a9266c5d113d7ee8dc1473fe46fd667e616ac1d85b7770cb6a84416bf3da5f39de4cdd86edabdc2e199bb24e388cf7e279f50e12dc4fb26b5c238f827be1f26f",
+    "salt": "222b84681094f3870e5fb09bd99e99bf",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Kisan Gram",
+      "district": "Sehore",
+      "state": "Madhya Pradesh",
+      "pincode": "466001"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-10T05:20:15.511Z"
+  },
+  {
+    "id": "user_farmer_1789018975505_392",
+    "name": "Baldev Test Farmer",
+    "phone": "+91 97342 96348",
+    "email": "baldev.test.1789018975433@kisansaathi.in",
+    "passwordHash": "87d51338955dd652725a4d617c5ebf398b622892c3c878aeb798c476b797843ace6dfffb3fe4c040295b378bf6869c2d9ceab451dd087e3e4e318d9c8c737cb0",
+    "salt": "5b37993390f0f73e010b42056aa04a04",
+    "role": "farmer",
+    "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+    "location": {
+      "villageOrCity": "Kisan Gram",
+      "district": "Sehore",
+      "state": "Madhya Pradesh",
+      "pincode": "466001"
+    },
+    "isVerifiedFPO": false,
+    "rating": 5,
+    "totalRatingsCount": 1,
+    "joinedDate": "September 2026",
+    "createdAt": "2026-09-10T05:42:55.534Z"
   }
 ]

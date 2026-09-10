@@ -34,6 +34,8 @@ import { SellerWindowPage } from '../pages/farmer/SellerWindowPage';
 import { AddCropListingPage } from '../pages/farmer/AddCropListingPage';
 import { FarmerOrdersPage } from '../pages/farmer/FarmerOrdersPage';
 import { FarmerOrderDetailPage } from '../pages/farmer/FarmerOrderDetailPage';
+import { FarmerEarningsPage } from '../pages/farmer/FarmerEarningsPage';
+import { FarmerProfilePage } from '../pages/farmer/FarmerProfilePage';
 import { FarmerCalculationsPage } from '../pages/farmer/FarmerCalculationsPage';
 import { CropLifeCyclePage } from '../pages/farmer/CropLifeCyclePage';
 import { FarmerNewsPage } from '../pages/farmer/FarmerNewsPage';
@@ -287,6 +289,37 @@ export const AppRouter: React.FC = () => {
       <Route path="/farmer/ai" element={
         <RequireAuth allowedRoles={['farmer', 'admin']}>
           <Shell><AIAssistantPage /></Shell>
+        </RequireAuth>
+      } />
+      <Route path="/farmer/earnings" element={
+        <RequireAuth allowedRoles={['farmer', 'admin']}>
+          <Shell><FarmerEarningsPage /></Shell>
+        </RequireAuth>
+      } />
+      <Route path="/farmer/profile" element={
+        <RequireAuth allowedRoles={['farmer', 'admin']}>
+          <Shell><FarmerProfilePage /></Shell>
+        </RequireAuth>
+      } />
+      {/* Placeholder routes — to be implemented in later steps */}
+      <Route path="/farmer/notifications" element={
+        <RequireAuth allowedRoles={['farmer', 'admin']}>
+          <Shell>
+            <div className="flex flex-col items-center justify-center min-h-[60vh] text-stone-400">
+              <p className="text-lg font-semibold">Notifications</p>
+              <p className="text-sm">Coming soon — Step 6</p>
+            </div>
+          </Shell>
+        </RequireAuth>
+      } />
+      <Route path="/farmer/settings" element={
+        <RequireAuth allowedRoles={['farmer', 'admin']}>
+          <Shell>
+            <div className="flex flex-col items-center justify-center min-h-[60vh] text-stone-400">
+              <p className="text-lg font-semibold">Settings</p>
+              <p className="text-sm">Coming soon — Step 6</p>
+            </div>
+          </Shell>
         </RequireAuth>
       } />
 

@@ -41,7 +41,12 @@ import {
 import { generateSeedData } from './seed';
 import * as validation from './validation';
 
-const DEFAULT_DB_PATH = path.join(process.cwd(), 'data', 'kisan_saathi.db.json');
+const isVercel = Boolean(process.env.VERCEL);
+const DEFAULT_DB_PATH = process.env.DATABASE_STORAGE_PATH || (
+  isVercel
+    ? path.join('/tmp', 'kisan_saathi.db.json')
+    : path.join(process.cwd(), 'data', 'kisan_saathi.db.json')
+);
 
 export interface ProductDetailView extends Product {
   farmer: {
@@ -169,6 +174,17 @@ export class KisanSaathiDatabase {
           parsed.articleCategories = parsed.articleCategories || [];
           parsed.wishlistItems = parsed.wishlistItems || [];
           return parsed;
+        }
+      } else if (isVercel) {
+        // On Vercel: copy pre-seeded database from bundled repo
+        const repoDbPath = path.join(process.cwd(), 'data', 'kisan_saathi.db.json');
+        if (fs.existsSync(repoDbPath)) {
+          const raw = fs.readFileSync(repoDbPath, 'utf-8');
+          const parsed = JSON.parse(raw) as DatabaseSchema;
+          if (parsed && Array.isArray(parsed.products) && parsed.products.length > 0) {
+            this.persistSync(parsed);
+            return parsed;
+          }
         }
       }
     } catch (err) {
@@ -465,13 +481,47 @@ export class KisanSaathiDatabase {
   }
 
   public getFarmerProfile(userId: string): FarmerProfile | undefined {
-    return this.indexes.farmerProfilesByUserId.get(userId);
+    return this.indexes.farmerProfilesByUserId.get(userId) ||
+      (userId === 'user_farmer_1' ? this.indexes.farmerProfilesByUserId.get('usr-farmer-001') : undefined) ||
+      (userId === 'usr-farmer-001' ? this.indexes.farmerProfilesByUserId.get('user_farmer_1') : undefined);
   }
 
   public updateFarmerProfile(userId: string, updates: Partial<FarmerProfile>): FarmerProfile {
-    const profile = this.indexes.farmerProfilesByUserId.get(userId);
-    if (!profile) throw new Error(`Farmer profile not found for user: ${userId}`);
-    Object.assign(profile, updates, { updatedAt: new Date().toISOString() });
+    let profile = this.indexes.farmerProfilesByUserId.get(userId);
+    if (!profile && userId === 'user_farmer_1') {
+      profile = this.indexes.farmerProfilesByUserId.get('usr-farmer-001');
+    }
+    if (!profile && userId === 'usr-farmer-001') {
+      profile = this.indexes.farmerProfilesByUserId.get('user_farmer_1');
+    }
+    if (!profile) {
+      const now = new Date().toISOString();
+      profile = {
+        id: `fp-${userId}`,
+        userId,
+        farmName: updates.farmName || 'Kisan Farm',
+        village: updates.village || 'Narsinghpur',
+        district: updates.district || 'Sehore',
+        state: updates.state || 'Madhya Pradesh',
+        pincode: updates.pincode || '466001',
+        landSizeAcres: updates.landSizeAcres || 10,
+        fpoName: updates.fpoName,
+        isVerifiedFPO: Boolean(updates.fpoName),
+        primaryApmcMandi: 'Sehore APMC Mandi',
+        farmingType: 'conventional',
+        certifications: [],
+        rating: 5,
+        totalRatingsCount: 1,
+        totalCropsListed: 0,
+        totalOrdersFulfilled: 0,
+        createdAt: now,
+        updatedAt: now,
+      };
+      this.data.farmerProfiles.push(profile);
+      this.indexes.farmerProfilesByUserId.set(userId, profile);
+    } else {
+      Object.assign(profile, updates, { updatedAt: new Date().toISOString() });
+    }
     this.scheduleSave();
     return profile;
   }
@@ -512,7 +562,13 @@ export class KisanSaathiDatabase {
   }
 
   public getDefaultAddressForUser(userId: string): Address | undefined {
-    const list = this.getAddressesForUser(userId);
+    let list = this.getAddressesForUser(userId);
+    if (list.length === 0 && userId === 'user_farmer_1') {
+      list = this.getAddressesForUser('usr-farmer-001');
+    }
+    if (list.length === 0 && userId === 'usr-farmer-001') {
+      list = this.getAddressesForUser('user_farmer_1');
+    }
     return list.find(a => a.isDefault) || list[0];
   }
 
@@ -536,11 +592,15 @@ export class KisanSaathiDatabase {
     maxPrice?: number;
     status?: Product['status'] | 'all';
   }): ProductDetailView[] {
+    const farmerIds = filter?.farmerId
+      ? [filter.farmerId, filter.farmerId === 'user_farmer_1' ? 'usr-farmer-001' : filter.farmerId === 'usr-farmer-001' ? 'user_farmer_1' : '']
+      : undefined;
+
     return this.data.products
       .filter(p => {
         if (filter?.status && filter.status !== 'all' && p.status !== filter.status) return false;
         if (filter?.cropId && p.cropId !== filter.cropId) return false;
-        if (filter?.farmerId && p.farmerId !== filter.farmerId) return false;
+        if (farmerIds && !farmerIds.includes(p.farmerId)) return false;
         if (filter?.grade && p.grade !== filter.grade) return false;
         if (filter?.minPrice && p.pricePerQuintal < filter.minPrice) return false;
         if (filter?.maxPrice && p.pricePerQuintal > filter.maxPrice) return false;
@@ -973,7 +1033,20 @@ export class KisanSaathiDatabase {
   }
 
   public getOrdersForFarmer(farmerId: string): OrderDetailView[] {
-    const orders = this.indexes.ordersByFarmerId.get(farmerId) || [];
+    const ids = [farmerId];
+    if (farmerId === 'user_farmer_1') ids.push('usr-farmer-001');
+    if (farmerId === 'usr-farmer-001') ids.push('user_farmer_1');
+    const seen = new Set<string>();
+    const orders: Order[] = [];
+    for (const id of ids) {
+      const list = this.indexes.ordersByFarmerId.get(id) || [];
+      for (const o of list) {
+        if (!seen.has(o.id)) {
+          seen.add(o.id);
+          orders.push(o);
+        }
+      }
+    }
     return orders.map(o => this.hydrateOrderDetail(o));
   }
 

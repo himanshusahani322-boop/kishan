@@ -44,6 +44,8 @@ export const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     { id: 'seller-window', label: 'Seller Window (My Crops)', hindiLabel: 'मेरी फसलें (बिक्री)', path: '/farmer/seller-window', icon: Package },
     { id: 'add-crop', label: 'List New Harvest', hindiLabel: 'नई फसल जोड़ें', path: '/farmer/seller-window/add', icon: PlusCircle, badge: 'New' },
     { id: 'orders', label: 'Order Dispatch Center', hindiLabel: 'ऑर्डर व प्रेषण', path: '/farmer/orders', icon: Truck },
+    { id: 'earnings', label: 'Earnings & Settlements', hindiLabel: 'कमाई और निपटान', path: '/farmer/earnings', icon: TrendingUp },
+    { id: 'profile', label: 'My Profile', hindiLabel: 'मेरी प्रोफ़ाइल', path: '/farmer/profile', icon: User },
     { id: 'calculations', label: 'Agri Calculators', hindiLabel: 'कृषि कैलकुलेटर', path: '/farmer/calculations', icon: Calculator },
     { id: 'lifecycle', label: 'Crop Life Cycle', hindiLabel: 'फसल जीवन चक्र', path: '/farmer/crop-life-cycle', icon: Sprout },
     { id: 'news', label: 'Mandi News & Schemes', hindiLabel: 'मंडी समाचार व योजनाएं', path: '/farmer/news', icon: Newspaper },

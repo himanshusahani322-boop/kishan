@@ -69,6 +69,34 @@
       "preferredLanguage": "en",
       "createdAt": "2026-09-01T08:30:00.000Z",
       "updatedAt": "2026-09-01T08:30:00.000Z"
+    },
+    {
+      "id": "usr-farmer-615518",
+      "name": "Baldev Test Farmer",
+      "phone": "9765792101",
+      "email": "baldev.test.1789017615369@kisansaathi.in",
+      "passwordHash": "a9266c5d113d7ee8dc1473fe46fd667e616ac1d85b7770cb6a84416bf3da5f39de4cdd86edabdc2e199bb24e388cf7e279f50e12dc4fb26b5c238f827be1f26f",
+      "salt": "222b84681094f3870e5fb09bd99e99bf",
+      "role": "farmer",
+      "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+      "status": "active",
+      "preferredLanguage": "hi",
+      "createdAt": "2026-09-10T05:20:15.518Z",
+      "updatedAt": "2026-09-10T05:20:15.518Z"
+    },
+    {
+      "id": "usr-farmer-975540",
+      "name": "Baldev Test Farmer",
+      "phone": "9734296348",
+      "email": "baldev.test.1789018975433@kisansaathi.in",
+      "passwordHash": "87d51338955dd652725a4d617c5ebf398b622892c3c878aeb798c476b797843ace6dfffb3fe4c040295b378bf6869c2d9ceab451dd087e3e4e318d9c8c737cb0",
+      "salt": "5b37993390f0f73e010b42056aa04a04",
+      "role": "farmer",
+      "avatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=200&auto=format&fit=crop&q=80",
+      "status": "active",
+      "preferredLanguage": "hi",
+      "createdAt": "2026-09-10T05:42:55.540Z",
+      "updatedAt": "2026-09-10T05:42:55.540Z"
     }
   ],
   "farmerProfiles": [
@@ -125,6 +153,36 @@
       "totalOrdersFulfilled": 26,
       "createdAt": "2026-09-01T08:30:00.000Z",
       "updatedAt": "2026-09-04T14:15:00.000Z"
+    },
+    {
+      "id": "fp-615518",
+      "userId": "usr-farmer-615518",
+      "isVerifiedFPO": false,
+      "primaryApmcMandi": "Local APMC Mandi",
+      "landSizeAcres": 5,
+      "farmingType": "conventional",
+      "certifications": [],
+      "rating": 5,
+      "totalRatingsCount": 0,
+      "totalCropsListed": 0,
+      "totalOrdersFulfilled": 0,
+      "createdAt": "2026-09-10T05:20:15.518Z",
+      "updatedAt": "2026-09-10T05:20:15.518Z"
+    },
+    {
+      "id": "fp-975540",
+      "userId": "usr-farmer-975540",
+      "isVerifiedFPO": false,
+      "primaryApmcMandi": "Local APMC Mandi",
+      "landSizeAcres": 5,
+      "farmingType": "conventional",
+      "certifications": [],
+      "rating": 5,
+      "totalRatingsCount": 0,
+      "totalCropsListed": 0,
+      "totalOrdersFulfilled": 0,
+      "createdAt": "2026-09-10T05:42:55.540Z",
+      "updatedAt": "2026-09-10T05:42:55.540Z"
     }
   ],
   "buyerProfiles": [
@@ -529,6 +587,226 @@
       "status": "active",
       "createdAt": "2026-09-01T08:30:00.000Z",
       "updatedAt": "2026-09-04T14:15:00.000Z"
+    },
+    {
+      "id": "prod-527232",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sharbati Wheat Special Test Lot (Edited)",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sharbati Wheat Special Test Lot stored in HDPE Laminated Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3950,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-03-20",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "archived",
+      "createdAt": "2026-09-10T05:18:47.232Z",
+      "updatedAt": "2026-09-10T05:18:47.284Z"
+    },
+    {
+      "id": "prod-527319",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sehore Sharbati Golden Grain (C-306) Wheat",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sehore Sharbati Golden Grain (C-306) Wheat stored in Hermetic Silo / HDPE Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3500,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-09-10",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "active",
+      "createdAt": "2026-09-10T05:18:47.319Z",
+      "updatedAt": "2026-09-10T05:18:47.319Z"
+    },
+    {
+      "id": "prod-561824",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sharbati Wheat Special Test Lot (Edited)",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sharbati Wheat Special Test Lot stored in HDPE Laminated Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3950,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-03-20",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "archived",
+      "createdAt": "2026-09-10T05:19:21.824Z",
+      "updatedAt": "2026-09-10T05:19:21.879Z"
+    },
+    {
+      "id": "prod-561910",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sehore Sharbati Golden Grain (C-306) Wheat",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sehore Sharbati Golden Grain (C-306) Wheat stored in Hermetic Silo / HDPE Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3500,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-09-10",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "active",
+      "createdAt": "2026-09-10T05:19:21.910Z",
+      "updatedAt": "2026-09-10T05:19:21.910Z"
+    },
+    {
+      "id": "prod-586407",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sharbati Wheat Special Test Lot (Edited)",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sharbati Wheat Special Test Lot stored in HDPE Laminated Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3950,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-03-20",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "archived",
+      "createdAt": "2026-09-10T05:19:46.407Z",
+      "updatedAt": "2026-09-10T05:19:46.472Z"
+    },
+    {
+      "id": "prod-586519",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sehore Sharbati Golden Grain (C-306) Wheat",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sehore Sharbati Golden Grain (C-306) Wheat stored in Hermetic Silo / HDPE Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3500,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-09-10",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "active",
+      "createdAt": "2026-09-10T05:19:46.519Z",
+      "updatedAt": "2026-09-10T05:19:46.519Z"
+    },
+    {
+      "id": "prod-615282",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sharbati Wheat Special Test Lot (Edited)",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sharbati Wheat Special Test Lot stored in HDPE Laminated Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3950,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-03-20",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "archived",
+      "createdAt": "2026-09-10T05:20:15.282Z",
+      "updatedAt": "2026-09-10T05:20:15.336Z"
+    },
+    {
+      "id": "prod-615367",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sehore Sharbati Golden Grain (C-306) Wheat",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sehore Sharbati Golden Grain (C-306) Wheat stored in Hermetic Silo / HDPE Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3500,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-09-10",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "active",
+      "createdAt": "2026-09-10T05:20:15.367Z",
+      "updatedAt": "2026-09-10T05:20:15.367Z"
+    },
+    {
+      "id": "prod-975345",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sharbati Wheat Special Test Lot (Edited)",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sharbati Wheat Special Test Lot stored in HDPE Laminated Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3950,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-03-20",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "archived",
+      "createdAt": "2026-09-10T05:42:55.345Z",
+      "updatedAt": "2026-09-10T05:42:55.390Z"
+    },
+    {
+      "id": "prod-975431",
+      "farmerId": "user_farmer_1",
+      "farmerProfileId": "fp-user_farmer_1",
+      "cropId": "crop-wheat",
+      "varietyId": "var-sharbati-sehore",
+      "title": "Sehore Sharbati Golden Grain (C-306) Wheat",
+      "hindiTitle": "गेहूं (Gehun)",
+      "description": "Premium Grade A Sehore Sharbati Golden Grain (C-306) Wheat stored in Hermetic Silo / HDPE Bags. Ready for dispatch with verified assaying report.",
+      "grade": "Grade A",
+      "pricePerQuintal": 3500,
+      "mandiBenchmarkPrice": 2425,
+      "unit": "quintal",
+      "harvestDate": "2026-09-10",
+      "dispatchWindowDays": 1,
+      "organicCertified": false,
+      "apmcMandiYard": "Sehore APMC Yard",
+      "farmGateAddressId": "addr-farm-001",
+      "status": "active",
+      "createdAt": "2026-09-10T05:42:55.431Z",
+      "updatedAt": "2026-09-10T05:42:55.431Z"
     }
   ],
   "productImages": [
@@ -576,6 +854,86 @@
       "isPrimary": true,
       "orderIndex": 0,
       "createdAt": "2026-09-01T08:30:00.000Z"
+    },
+    {
+      "id": "img-prod-527232-0",
+      "productId": "prod-527232",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:18:47.232Z"
+    },
+    {
+      "id": "img-prod-527319-0",
+      "productId": "prod-527319",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:18:47.319Z"
+    },
+    {
+      "id": "img-prod-561824-0",
+      "productId": "prod-561824",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:19:21.824Z"
+    },
+    {
+      "id": "img-prod-561910-0",
+      "productId": "prod-561910",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:19:21.910Z"
+    },
+    {
+      "id": "img-prod-586407-0",
+      "productId": "prod-586407",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:19:46.407Z"
+    },
+    {
+      "id": "img-prod-586519-0",
+      "productId": "prod-586519",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:19:46.519Z"
+    },
+    {
+      "id": "img-prod-615282-0",
+      "productId": "prod-615282",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:20:15.282Z"
+    },
+    {
+      "id": "img-prod-615367-0",
+      "productId": "prod-615367",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:20:15.367Z"
+    },
+    {
+      "id": "img-prod-975345-0",
+      "productId": "prod-975345",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:42:55.345Z"
+    },
+    {
+      "id": "img-prod-975431-0",
+      "productId": "prod-975431",
+      "imageUrl": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&q=80&w=1200",
+      "isPrimary": true,
+      "orderIndex": 0,
+      "createdAt": "2026-09-10T05:42:55.431Z"
     }
   ],
   "inventories": [
@@ -642,6 +1000,156 @@
       "status": "in_stock",
       "createdAt": "2026-09-01T08:30:00.000Z",
       "updatedAt": "2026-09-04T14:15:00.000Z"
+    },
+    {
+      "id": "inv-527232",
+      "productId": "prod-527232",
+      "batchLotNumber": "LOT-527224",
+      "totalAvailableQuintals": 140,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 20,
+      "moisturePercentage": 11.2,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "HDPE Laminated Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:18:47.232Z",
+      "updatedAt": "2026-09-10T05:18:47.244Z"
+    },
+    {
+      "id": "inv-527319",
+      "productId": "prod-527319",
+      "batchLotNumber": "LOT-527319",
+      "totalAvailableQuintals": 80,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 10,
+      "moisturePercentage": 11.4,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "Hermetic Silo / HDPE Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:18:47.319Z",
+      "updatedAt": "2026-09-10T05:18:47.319Z"
+    },
+    {
+      "id": "inv-561824",
+      "productId": "prod-561824",
+      "batchLotNumber": "LOT-561812",
+      "totalAvailableQuintals": 140,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 20,
+      "moisturePercentage": 11.2,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "HDPE Laminated Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:19:21.824Z",
+      "updatedAt": "2026-09-10T05:19:21.836Z"
+    },
+    {
+      "id": "inv-561910",
+      "productId": "prod-561910",
+      "batchLotNumber": "LOT-561910",
+      "totalAvailableQuintals": 80,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 10,
+      "moisturePercentage": 11.4,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "Hermetic Silo / HDPE Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:19:21.910Z",
+      "updatedAt": "2026-09-10T05:19:21.910Z"
+    },
+    {
+      "id": "inv-586408",
+      "productId": "prod-586407",
+      "batchLotNumber": "LOT-586398",
+      "totalAvailableQuintals": 140,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 20,
+      "moisturePercentage": 11.2,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "HDPE Laminated Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:19:46.407Z",
+      "updatedAt": "2026-09-10T05:19:46.419Z"
+    },
+    {
+      "id": "inv-586519",
+      "productId": "prod-586519",
+      "batchLotNumber": "LOT-586519",
+      "totalAvailableQuintals": 80,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 10,
+      "moisturePercentage": 11.4,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "Hermetic Silo / HDPE Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:19:46.519Z",
+      "updatedAt": "2026-09-10T05:19:46.519Z"
+    },
+    {
+      "id": "inv-615282",
+      "productId": "prod-615282",
+      "batchLotNumber": "LOT-615276",
+      "totalAvailableQuintals": 140,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 20,
+      "moisturePercentage": 11.2,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "HDPE Laminated Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:20:15.282Z",
+      "updatedAt": "2026-09-10T05:20:15.292Z"
+    },
+    {
+      "id": "inv-615367",
+      "productId": "prod-615367",
+      "batchLotNumber": "LOT-615367",
+      "totalAvailableQuintals": 80,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 10,
+      "moisturePercentage": 11.4,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "Hermetic Silo / HDPE Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:20:15.367Z",
+      "updatedAt": "2026-09-10T05:20:15.367Z"
+    },
+    {
+      "id": "inv-975345",
+      "productId": "prod-975345",
+      "batchLotNumber": "LOT-975339",
+      "totalAvailableQuintals": 140,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 20,
+      "moisturePercentage": 11.2,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "HDPE Laminated Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:42:55.345Z",
+      "updatedAt": "2026-09-10T05:42:55.358Z"
+    },
+    {
+      "id": "inv-975431",
+      "productId": "prod-975431",
+      "batchLotNumber": "LOT-975431",
+      "totalAvailableQuintals": 80,
+      "reservedQuintals": 0,
+      "soldQuintals": 0,
+      "minOrderQuantityQuintals": 10,
+      "moisturePercentage": 11.4,
+      "warehouseLocation": "Village Brijisnagar, Tehsil Rehti, Sehore",
+      "storageConditions": "Hermetic Silo / HDPE Bags",
+      "status": "in_stock",
+      "createdAt": "2026-09-10T05:42:55.431Z",
+      "updatedAt": "2026-09-10T05:42:55.431Z"
     }
   ],
   "qualityReports": [
@@ -701,6 +1209,176 @@
       "isVerified": true,
       "createdAt": "2026-09-04T14:15:00.000Z",
       "updatedAt": "2026-09-04T14:15:00.000Z"
+    },
+    {
+      "id": "qr-prod-527232",
+      "productId": "prod-527232",
+      "inventoryLotId": "inv-527232",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-649919",
+      "moisturePercent": 11.2,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:18:47.233Z",
+      "updatedAt": "2026-09-10T05:18:47.233Z"
+    },
+    {
+      "id": "qr-prod-527319",
+      "productId": "prod-527319",
+      "inventoryLotId": "inv-527319",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-885005",
+      "moisturePercent": 11.4,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:18:47.319Z",
+      "updatedAt": "2026-09-10T05:18:47.319Z"
+    },
+    {
+      "id": "qr-prod-561824",
+      "productId": "prod-561824",
+      "inventoryLotId": "inv-561824",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-503551",
+      "moisturePercent": 11.2,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:19:21.824Z",
+      "updatedAt": "2026-09-10T05:19:21.824Z"
+    },
+    {
+      "id": "qr-prod-561910",
+      "productId": "prod-561910",
+      "inventoryLotId": "inv-561910",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-688773",
+      "moisturePercent": 11.4,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:19:21.910Z",
+      "updatedAt": "2026-09-10T05:19:21.910Z"
+    },
+    {
+      "id": "qr-prod-586407",
+      "productId": "prod-586407",
+      "inventoryLotId": "inv-586408",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-266963",
+      "moisturePercent": 11.2,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:19:46.408Z",
+      "updatedAt": "2026-09-10T05:19:46.408Z"
+    },
+    {
+      "id": "qr-prod-586519",
+      "productId": "prod-586519",
+      "inventoryLotId": "inv-586519",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-264459",
+      "moisturePercent": 11.4,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:19:46.519Z",
+      "updatedAt": "2026-09-10T05:19:46.519Z"
+    },
+    {
+      "id": "qr-prod-615282",
+      "productId": "prod-615282",
+      "inventoryLotId": "inv-615282",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-549094",
+      "moisturePercent": 11.2,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:20:15.282Z",
+      "updatedAt": "2026-09-10T05:20:15.282Z"
+    },
+    {
+      "id": "qr-prod-615367",
+      "productId": "prod-615367",
+      "inventoryLotId": "inv-615367",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-824152",
+      "moisturePercent": 11.4,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:20:15.368Z",
+      "updatedAt": "2026-09-10T05:20:15.368Z"
+    },
+    {
+      "id": "qr-prod-975345",
+      "productId": "prod-975345",
+      "inventoryLotId": "inv-975345",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-269086",
+      "moisturePercent": 11.2,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:42:55.346Z",
+      "updatedAt": "2026-09-10T05:42:55.346Z"
+    },
+    {
+      "id": "qr-prod-975431",
+      "productId": "prod-975431",
+      "inventoryLotId": "inv-975431",
+      "assayingAgency": "District Agricultural Assaying Lab",
+      "certificateNumber": "AGM-826754",
+      "moisturePercent": 11.4,
+      "foreignMatterPercent": 0.6,
+      "grainSizeMm": 6.8,
+      "damagedGrainsPercent": 0.3,
+      "certifiedGrade": "Grade A",
+      "inspectionDate": "2026-09-10",
+      "verifiedByInspector": "Chief Mandi Assayer",
+      "isVerified": true,
+      "createdAt": "2026-09-10T05:42:55.431Z",
+      "updatedAt": "2026-09-10T05:42:55.431Z"
     }
   ],
   "carts": [
@@ -786,7 +1464,7 @@
       "orderNumber": "KS-ORD-2026-8891",
       "buyerId": "usr-buyer-001",
       "farmerId": "usr-farmer-001",
-      "status": "in_transit",
+      "status": "dispatched",
       "totalQuantityQuintals": 50,
       "cropSubtotalAmount": 182500,
       "mandiTaxCessAmount": 2737.5,
@@ -795,12 +1473,12 @@
       "totalAmount": 199562.5,
       "deliveryAddressId": "addr-buyer-wh-001",
       "farmGatePickupAddressId": "addr-farm-001",
-      "weighbridgeSlipNumber": "WB-SEH-2026-904",
-      "certifiedWeightQuintals": 50.15,
+      "weighbridgeSlipNumber": "wm-527411",
+      "certifiedWeightQuintals": 95,
       "estimatedDeliveryDate": "2026-09-10",
       "notes": "Export standard packaging with inner liner moisture barriers.",
       "createdAt": "2026-09-04T14:15:00.000Z",
-      "updatedAt": "2026-09-07T09:00:00.000Z"
+      "updatedAt": "2026-09-10T05:18:47.437Z"
     },
     {
       "id": "ord-2026-002",
@@ -891,6 +1569,25 @@
       "changeReason": "Buyer inspected lot quality, signed delivery challan and verified weight.",
       "locationCheckpoint": "Chennai Flour Mills Receiving Bay",
       "timestamp": "2026-09-05T17:45:00Z"
+    },
+    {
+      "id": "osh-1789017527397-irbe",
+      "orderId": "ord-2026-001",
+      "previousStatus": "in_transit",
+      "newStatus": "delivered",
+      "changedByUserId": "user_farmer_1",
+      "changeReason": "Status transitioned from in_transit to delivered",
+      "timestamp": "2026-09-10T05:18:47.397Z"
+    },
+    {
+      "id": "osh-1789017527437-5s9f",
+      "orderId": "ord-2026-001",
+      "previousStatus": "delivered",
+      "newStatus": "dispatched",
+      "changedByUserId": "user_farmer_1",
+      "changeReason": "Truck dispatched from mandi gate",
+      "locationCheckpoint": "Gate exit: MP-09-AB-1234",
+      "timestamp": "2026-09-10T05:18:47.437Z"
     }
   ],
   "shipments": [
@@ -898,8 +1595,8 @@
       "id": "ship-001",
       "orderId": "ord-2026-001",
       "logisticsPartnerName": "Kisan Saathi Cold-Link & Freight Fleet",
-      "vehicleNumber": "MP-04-HE-8921",
-      "driverName": "Gurmeet Singh",
+      "vehicleNumber": "MP-09-AB-1234",
+      "driverName": "Jagdish Singh",
       "driverPhone": "9826044912",
       "eWayBillNumber": "EWB-231908821901",
       "trackingNumber": "KS-TRK-77192",
@@ -907,14 +1604,18 @@
       "gpsLatitude": 27.1767,
       "gpsLongitude": 78.0081,
       "status": "in_transit",
-      "dispatchedAt": "2026-09-07T09:00:00.000Z",
+      "dispatchedAt": "2026-09-10T05:18:47.436Z",
       "estimatedArrival": "2026-09-09T18:00:00Z",
       "weighbridgeGrossKg": 18450,
       "weighbridgeTareKg": 13435,
       "weighbridgeNetKg": 5015,
       "weighbridgeSlipImageUrl": "https://docs.kisansaathi.in/slips/wb-seh-2026-904.jpg",
       "createdAt": "2026-09-04T14:15:00.000Z",
-      "updatedAt": "2026-09-08T10:00:00.000Z"
+      "updatedAt": "2026-09-10T05:18:47.437Z",
+      "deliveredAt": "2026-09-10T05:18:47.397Z",
+      "transporterName": "Narmada Logistics Fleet",
+      "driverContactNumber": "9826011223",
+      "pickupLocation": "Mandi Yard Gate 1"
     },
     {
       "id": "ship-002",
@@ -952,6 +1653,18 @@
       "verifiedBy": "Dharmkanta Operator Rameshwar",
       "createdAt": "2026-09-07T09:00:00.000Z",
       "updatedAt": "2026-09-07T09:00:00.000Z"
+    },
+    {
+      "id": "wm-527411",
+      "orderId": "ord-2026-001",
+      "grossWeight": 10000,
+      "tareWeight": 500,
+      "netWeight": 9500,
+      "unit": "kg",
+      "weighmentSlipUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800",
+      "verifiedBy": "Rameshwar Patel (Seller Verification)",
+      "createdAt": "2026-09-10T05:18:47.411Z",
+      "updatedAt": "2026-09-10T05:18:47.411Z"
     }
   ],
   "payments": [
@@ -1483,6 +2196,492 @@
     }
   ],
   "auditLogs": [
+    {
+      "id": "audit-1789018975540-vmtlo",
+      "timestamp": "2026-09-10T05:42:55.540Z",
+      "entityName": "User",
+      "entityId": "usr-farmer-975540",
+      "action": "create",
+      "performedByUserId": "usr-farmer-975540",
+      "changesSummary": "Registered new farmer user: Baldev Test Farmer",
+      "newState": {
+        "email": "baldev.test.1789018975433@kisansaathi.in",
+        "role": "farmer"
+      }
+    },
+    {
+      "id": "audit-1789018975431-1x2ga",
+      "timestamp": "2026-09-10T05:42:55.431Z",
+      "entityName": "Product",
+      "entityId": "prod-975431",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sehore Sharbati Golden Grain (C-306) Wheat (80 Qtl)",
+      "newState": {
+        "price": 3500,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789018975390-7o279",
+      "timestamp": "2026-09-10T05:42:55.390Z",
+      "entityName": "Product",
+      "entityId": "prod-975345",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "archived"
+        }
+      }
+    },
+    {
+      "id": "audit-1789018975384-j77rx",
+      "timestamp": "2026-09-10T05:42:55.384Z",
+      "entityName": "Product",
+      "entityId": "prod-975345",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "active"
+        }
+      }
+    },
+    {
+      "id": "audit-1789018975367-hv1vu",
+      "timestamp": "2026-09-10T05:42:55.367Z",
+      "entityName": "Product",
+      "entityId": "prod-975345",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "paused"
+        }
+      }
+    },
+    {
+      "id": "audit-1789018975358-4j49j",
+      "timestamp": "2026-09-10T05:42:55.358Z",
+      "entityName": "Product",
+      "entityId": "prod-975345",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "pricePerQuintal": 3950,
+          "title": "Sharbati Wheat Special Test Lot (Edited)"
+        },
+        "inventoryUpdates": {
+          "totalAvailableQuintals": 140
+        }
+      }
+    },
+    {
+      "id": "audit-1789018975345-ffpod",
+      "timestamp": "2026-09-10T05:42:55.345Z",
+      "entityName": "Product",
+      "entityId": "prod-975345",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sharbati Wheat Special Test Lot (150 Qtl)",
+      "newState": {
+        "price": 3800,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017615518-p0k37",
+      "timestamp": "2026-09-10T05:20:15.518Z",
+      "entityName": "User",
+      "entityId": "usr-farmer-615518",
+      "action": "create",
+      "performedByUserId": "usr-farmer-615518",
+      "changesSummary": "Registered new farmer user: Baldev Test Farmer",
+      "newState": {
+        "email": "baldev.test.1789017615369@kisansaathi.in",
+        "role": "farmer"
+      }
+    },
+    {
+      "id": "audit-1789017615368-cjllg",
+      "timestamp": "2026-09-10T05:20:15.368Z",
+      "entityName": "Product",
+      "entityId": "prod-615367",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sehore Sharbati Golden Grain (C-306) Wheat (80 Qtl)",
+      "newState": {
+        "price": 3500,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017615336-htfhe",
+      "timestamp": "2026-09-10T05:20:15.336Z",
+      "entityName": "Product",
+      "entityId": "prod-615282",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "archived"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017615320-w76gp",
+      "timestamp": "2026-09-10T05:20:15.320Z",
+      "entityName": "Product",
+      "entityId": "prod-615282",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "active"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017615300-fc9hn",
+      "timestamp": "2026-09-10T05:20:15.300Z",
+      "entityName": "Product",
+      "entityId": "prod-615282",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "paused"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017615293-zg5lx",
+      "timestamp": "2026-09-10T05:20:15.293Z",
+      "entityName": "Product",
+      "entityId": "prod-615282",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "pricePerQuintal": 3950,
+          "title": "Sharbati Wheat Special Test Lot (Edited)"
+        },
+        "inventoryUpdates": {
+          "totalAvailableQuintals": 140
+        }
+      }
+    },
+    {
+      "id": "audit-1789017615282-681z7",
+      "timestamp": "2026-09-10T05:20:15.282Z",
+      "entityName": "Product",
+      "entityId": "prod-615282",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sharbati Wheat Special Test Lot (150 Qtl)",
+      "newState": {
+        "price": 3800,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017586519-r4979",
+      "timestamp": "2026-09-10T05:19:46.519Z",
+      "entityName": "Product",
+      "entityId": "prod-586519",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sehore Sharbati Golden Grain (C-306) Wheat (80 Qtl)",
+      "newState": {
+        "price": 3500,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017586472-98xt7",
+      "timestamp": "2026-09-10T05:19:46.472Z",
+      "entityName": "Product",
+      "entityId": "prod-586407",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "archived"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017586450-rluni",
+      "timestamp": "2026-09-10T05:19:46.450Z",
+      "entityName": "Product",
+      "entityId": "prod-586407",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "active"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017586442-78xk0",
+      "timestamp": "2026-09-10T05:19:46.443Z",
+      "entityName": "Product",
+      "entityId": "prod-586407",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "paused"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017586419-2tx79",
+      "timestamp": "2026-09-10T05:19:46.419Z",
+      "entityName": "Product",
+      "entityId": "prod-586407",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "pricePerQuintal": 3950,
+          "title": "Sharbati Wheat Special Test Lot (Edited)"
+        },
+        "inventoryUpdates": {
+          "totalAvailableQuintals": 140
+        }
+      }
+    },
+    {
+      "id": "audit-1789017586408-chooq",
+      "timestamp": "2026-09-10T05:19:46.408Z",
+      "entityName": "Product",
+      "entityId": "prod-586407",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sharbati Wheat Special Test Lot (150 Qtl)",
+      "newState": {
+        "price": 3800,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017561910-di4ng",
+      "timestamp": "2026-09-10T05:19:21.910Z",
+      "entityName": "Product",
+      "entityId": "prod-561910",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sehore Sharbati Golden Grain (C-306) Wheat (80 Qtl)",
+      "newState": {
+        "price": 3500,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017561879-g4ag9",
+      "timestamp": "2026-09-10T05:19:21.879Z",
+      "entityName": "Product",
+      "entityId": "prod-561824",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "archived"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017561863-9q5d2",
+      "timestamp": "2026-09-10T05:19:21.863Z",
+      "entityName": "Product",
+      "entityId": "prod-561824",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "active"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017561848-4dg0f",
+      "timestamp": "2026-09-10T05:19:21.848Z",
+      "entityName": "Product",
+      "entityId": "prod-561824",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "paused"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017561836-3m2e5",
+      "timestamp": "2026-09-10T05:19:21.836Z",
+      "entityName": "Product",
+      "entityId": "prod-561824",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "pricePerQuintal": 3950,
+          "title": "Sharbati Wheat Special Test Lot (Edited)"
+        },
+        "inventoryUpdates": {
+          "totalAvailableQuintals": 140
+        }
+      }
+    },
+    {
+      "id": "audit-1789017561824-ayvkw",
+      "timestamp": "2026-09-10T05:19:21.824Z",
+      "entityName": "Product",
+      "entityId": "prod-561824",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sharbati Wheat Special Test Lot (150 Qtl)",
+      "newState": {
+        "price": 3800,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017527437-cgvqk",
+      "timestamp": "2026-09-10T05:18:47.437Z",
+      "entityName": "Order",
+      "entityId": "ord-2026-001",
+      "action": "status_change",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Order status changed to dispatched",
+      "previousState": {
+        "status": "delivered"
+      },
+      "newState": {
+        "status": "dispatched"
+      }
+    },
+    {
+      "id": "audit-1789017527397-bl50r",
+      "timestamp": "2026-09-10T05:18:47.397Z",
+      "entityName": "Order",
+      "entityId": "ord-2026-001",
+      "action": "status_change",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Order status changed to delivered",
+      "previousState": {
+        "status": "in_transit"
+      },
+      "newState": {
+        "status": "delivered"
+      }
+    },
+    {
+      "id": "audit-1789017527319-rno2t",
+      "timestamp": "2026-09-10T05:18:47.319Z",
+      "entityName": "Product",
+      "entityId": "prod-527319",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sehore Sharbati Golden Grain (C-306) Wheat (80 Qtl)",
+      "newState": {
+        "price": 3500,
+        "grade": "Grade A"
+      }
+    },
+    {
+      "id": "audit-1789017527284-2gb53",
+      "timestamp": "2026-09-10T05:18:47.284Z",
+      "entityName": "Product",
+      "entityId": "prod-527232",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "archived"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017527269-s8cnq",
+      "timestamp": "2026-09-10T05:18:47.269Z",
+      "entityName": "Product",
+      "entityId": "prod-527232",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "active"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017527254-re7kb",
+      "timestamp": "2026-09-10T05:18:47.254Z",
+      "entityName": "Product",
+      "entityId": "prod-527232",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "status": "paused"
+        }
+      }
+    },
+    {
+      "id": "audit-1789017527244-lha96",
+      "timestamp": "2026-09-10T05:18:47.244Z",
+      "entityName": "Product",
+      "entityId": "prod-527232",
+      "action": "update",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Updated crop product details for Sharbati Wheat Special Test Lot (Edited)",
+      "newState": {
+        "updates": {
+          "pricePerQuintal": 3950,
+          "title": "Sharbati Wheat Special Test Lot (Edited)"
+        },
+        "inventoryUpdates": {
+          "totalAvailableQuintals": 140
+        }
+      }
+    },
+    {
+      "id": "audit-1789017527233-6t9tt",
+      "timestamp": "2026-09-10T05:18:47.233Z",
+      "entityName": "Product",
+      "entityId": "prod-527232",
+      "action": "create",
+      "performedByUserId": "user_farmer_1",
+      "changesSummary": "Listed new crop product: Sharbati Wheat Special Test Lot (150 Qtl)",
+      "newState": {
+        "price": 3800,
+        "grade": "Grade A"
+      }
+    },
     {
       "id": "audit-001",
       "entityName": "Order",

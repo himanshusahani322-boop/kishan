@@ -1,52 +1,107 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '../../context/AppContext';
-import { useAuth } from '../../context/AuthContext';
-import { 
-  PageContainer, 
-  Breadcrumbs, 
-  SectionHeader, 
-  OrderCard, 
-  EmptyState, 
-  Button 
+import { marketplaceService } from '../../services/marketplaceService';
+import {
+  PageContainer,
+  Breadcrumbs,
+  SectionHeader,
+  OrderCard,
+  EmptyState,
+  Alert,
 } from '../../components/ui';
-import { Truck, Package } from 'lucide-react';
+import { Package, RefreshCw } from 'lucide-react';
+
+// ─── Status filter definitions (aligned with DB schema) ───────────────────────
+const FILTER_TABS = [
+  { id: 'all',                  label: 'All Orders' },
+  { id: 'pending_confirmation', label: 'New' },
+  { id: 'confirmed',            label: 'Confirmed' },
+  { id: 'weighment_pending',    label: 'Weighment' },
+  { id: 'dispatched',          label: 'Dispatched' },
+  { id: 'in_transit',          label: 'In Transit' },
+  { id: 'delivered',           label: 'Delivered' },
+] as const;
+
+// ─── Skeleton card ─────────────────────────────────────────────────────────────
+const OrderSkeleton: React.FC = () => (
+  <div className="bg-white rounded-2xl border border-stone-200 p-4 animate-pulse h-36">
+    <div className="h-3 bg-stone-200 rounded w-1/3 mb-3" />
+    <div className="h-3 bg-stone-100 rounded w-2/3 mb-2" />
+    <div className="h-3 bg-stone-100 rounded w-1/2" />
+  </div>
+);
+
+// ─── Map DB order shape → OrderCard shape ─────────────────────────────────────
+function mapDbOrder(o: any) {
+  const item = o.items?.[0] || {};
+  return {
+    id: o.id,
+    cropTitle: item.cropName || item.varietyName || 'Agricultural Order',
+    buyerName: o.buyer?.name || o.buyerName || 'Buyer',
+    buyerPhone: o.buyer?.phone || '',
+    quantityQuintals: o.totalQuantityQuintals ?? item.quantityQuintals ?? 0,
+    totalAmount: o.totalAmount ?? 0,
+    orderStatus: o.status || 'pending_confirmation',
+    paymentStatus: o.paymentStatus || o.payment?.status || 'pending',
+    trackingId: o.orderNumber || o.id?.slice(-8).toUpperCase() || '',
+    sellerId: o.farmerId || '',
+    sellerName: o.farmer?.name || '',
+    deliveryAddress: o.deliveryAddress || {
+      addressLine: '',
+      city: '',
+      district: '',
+      state: '',
+      pincode: '',
+    },
+    vehicleNumber: o.shipment?.vehicleNumber || '',
+    driverContact: o.shipment?.driverContactNumber || '',
+    checkpoints: (o.statusHistory || []).map((h: any) => ({
+      status: h.newStatus,
+      timestamp: h.timestamp || h.createdAt,
+      note: h.changeReason || h.note || '',
+    })),
+    createdAt: o.createdAt,
+  };
+}
 
 export const FarmerOrdersPage: React.FC = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
-  const { currentUser, orders, language } = useApp();
 
-  const farmerUser = user || currentUser;
+  const [orders, setOrders] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [filterStatus, setFilterStatus] = useState<string>('all');
 
-  const myOrders = orders.filter(o =>
-    o.sellerId === farmerUser.id ||
-    o.sellerName.includes(farmerUser.name) ||
-    o.sellerId === 'user_farmer_1'
-  );
+  const loadOrders = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await marketplaceService.getFarmerOrders();
+      const raw = res.orders || res.data || res || [];
+      setOrders(Array.isArray(raw) ? raw.map(mapDbOrder) : []);
+    } catch (err: any) {
+      setError(err.message || 'Failed to load orders');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-  const filteredOrders = myOrders.filter(o => {
-    if (filterStatus === 'all') return true;
-    if (filterStatus === 'pending') return o.orderStatus === 'placed' || o.orderStatus === 'confirmed';
-    if (filterStatus === 'dispatched') return o.orderStatus === 'dispatched' || o.orderStatus === 'out_for_delivery' || o.orderStatus === 'aggregated_at_mandi';
-    if (filterStatus === 'delivered') return o.orderStatus === 'delivered';
-    return true;
-  });
+  useEffect(() => { loadOrders(); }, [loadOrders]);
 
-  const filterTabs = [
-    { id: 'all', label: 'All Orders', count: myOrders.length },
-    { id: 'pending', label: 'Pending Dispatch', count: myOrders.filter(o => o.orderStatus === 'placed' || o.orderStatus === 'confirmed').length },
-    { id: 'dispatched', label: 'In Transit', count: myOrders.filter(o => o.orderStatus === 'dispatched' || o.orderStatus === 'out_for_delivery').length },
-    { id: 'delivered', label: 'Delivered', count: myOrders.filter(o => o.orderStatus === 'delivered').length },
-  ];
+  // ── Filter ────────────────────────────────────────────────────────────────────
+  const filteredOrders = filterStatus === 'all'
+    ? orders
+    : orders.filter(o => o.orderStatus === filterStatus);
+
+  const countFor = (status: string) =>
+    status === 'all' ? orders.length : orders.filter(o => o.orderStatus === status).length;
 
   return (
     <PageContainer>
       <Breadcrumbs
         items={[
           { label: 'Farmer Dashboard', href: '/farmer' },
-          { label: 'Order Dispatch Center' }
+          { label: 'Order Dispatch Center' },
         ]}
         className="mb-4"
       />
@@ -54,12 +109,26 @@ export const FarmerOrdersPage: React.FC = () => {
       <SectionHeader
         title="Order Dispatch & Mandi Freight Center"
         subtitle="Manage incoming buyer orders, allocate freight trucks, and upload certified weighbridge slips"
-        badge={`${myOrders.length} Total Orders`}
+        badge={`${orders.length} Total Orders`}
+        action={
+          <button
+            onClick={loadOrders}
+            disabled={loading}
+            className="p-2 rounded-xl border border-stone-200 text-stone-500 hover:text-stone-800 hover:bg-stone-50 transition-colors cursor-pointer disabled:opacity-50"
+            title="Refresh"
+          >
+            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+          </button>
+        }
       />
 
-      {/* Filter Tabs - horizontally scrollable on mobile */}
+      {error && (
+        <Alert variant="error" title="Error Loading Orders" description={error} className="mb-4" />
+      )}
+
+      {/* Filter Tabs */}
       <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-1 border-b border-stone-200">
-        {filterTabs.map(tab => (
+        {FILTER_TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => setFilterStatus(tab.id)}
@@ -70,26 +139,35 @@ export const FarmerOrdersPage: React.FC = () => {
             }`}
           >
             <span>{tab.label}</span>
-            {tab.count > 0 && (
+            {countFor(tab.id) > 0 && (
               <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-full ${
                 filterStatus === tab.id ? 'bg-emerald-800 text-emerald-100' : 'bg-stone-200 text-stone-600'
               }`}>
-                {tab.count}
+                {countFor(tab.id)}
               </span>
             )}
           </button>
         ))}
       </div>
 
-      {filteredOrders.length === 0 ? (
+      {/* Loading */}
+      {loading ? (
+        <div className="space-y-4">
+          {[1, 2, 3].map(i => <OrderSkeleton key={i} />)}
+        </div>
+      ) : filteredOrders.length === 0 ? (
         <EmptyState
           title="No Orders Found"
-          description="You have no orders in this category. Active buyer orders will appear here once received."
+          description={
+            filterStatus === 'all'
+              ? 'You have no orders yet. Active buyer orders will appear here once received.'
+              : `No orders with status "${FILTER_TABS.find(t => t.id === filterStatus)?.label}". Try a different filter.`
+          }
           icon={Package}
         />
       ) : (
         <div className="space-y-4">
-          {filteredOrders.map((order) => (
+          {filteredOrders.map(order => (
             <OrderCard
               key={order.id}
               order={order}

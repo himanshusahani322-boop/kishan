@@ -44,7 +44,12 @@ interface PasswordResetEntry {
 }
 
 const SESSION_SECRET = process.env.SESSION_SECRET || 'kisan-saathi-production-auth-secret-key-2026';
-const DATA_FILE = path.join(process.cwd(), 'data', 'users.json');
+const isVercel = Boolean(process.env.VERCEL);
+const DATA_FILE = process.env.USERS_STORAGE_PATH || (
+  isVercel
+    ? path.join('/tmp', 'users.json')
+    : path.join(process.cwd(), 'data', 'users.json')
+);
 
 // Ensure data directory exists
 try {
@@ -154,6 +159,20 @@ function initSeedUsers() {
     } catch (e) {
       console.warn('Failed to parse users.json, falling back to seed users');
     }
+  }
+
+  // Fallback to bundled repo data file on Vercel
+  const repoUsersPath = path.join(process.cwd(), 'data', 'users.json');
+  if (fs.existsSync(repoUsersPath)) {
+    try {
+      const data = fs.readFileSync(repoUsersPath, 'utf-8');
+      const loaded = JSON.parse(data);
+      if (Array.isArray(loaded) && loaded.length > 0) {
+        users = loaded;
+        saveUsersToFile();
+        return;
+      }
+    } catch (e) {}
   }
 
   // Pre-seed trusted institutional accounts
@@ -269,6 +288,28 @@ function initSeedUsers() {
       totalRatingsCount: 84,
       joinedDate: 'August 2023',
       createdAt: new Date('2023-08-15').toISOString()
+    },
+    {
+      id: 'usr-farmer-002',
+      name: 'Baldev Singh Dhillon',
+      phone: '+91 98140 56789',
+      email: 'baldev.singh@malwaorganicfpo.org',
+      passwordHash: farmerPw.hash,
+      salt: farmerPw.salt,
+      role: 'farmer',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
+      location: {
+        villageOrCity: 'Tarana',
+        district: 'Ujjain',
+        state: 'Madhya Pradesh',
+        pincode: '456006'
+      },
+      isVerifiedFPO: true,
+      fpoName: 'Malwa Organic Farmer Producer Co.',
+      rating: 4.9,
+      totalRatingsCount: 96,
+      joinedDate: 'April 2023',
+      createdAt: new Date('2023-04-10').toISOString()
     }
   ];
 
