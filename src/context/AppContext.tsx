@@ -17,6 +17,14 @@ import {
   INITIAL_RFQ_OFFERS 
 } from '../data/mockData';
 
+async function readApiJson(response: Response, endpoint: string): Promise<any> {
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    throw new Error(`${endpoint} returned ${contentType || 'a non-JSON response'} (HTTP ${response.status})`);
+  }
+  return response.json();
+}
+
 interface AppContextType {
   currentUser: User;
   currentRole: UserRole;
@@ -307,7 +315,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // 1. Fetch live products from database
       const prodRes = await fetch('/api/products');
       if (prodRes.ok) {
-        const prodData = await prodRes.json();
+        const prodData = await readApiJson(prodRes, '/api/products');
         if (prodData.success && Array.isArray(prodData.products) && prodData.products.length > 0) {
           const mapped = prodData.products.map(mapDbProductToCropListing);
           setCrops(mapped);
@@ -318,7 +326,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       if (token) {
         const orderRes = await fetch('/api/orders', { headers: authHeader });
         if (orderRes.ok) {
-          const orderData = await orderRes.json();
+          const orderData = await readApiJson(orderRes, '/api/orders');
           if (orderData.success && Array.isArray(orderData.orders) && orderData.orders.length > 0) {
             const mappedOrders = orderData.orders.map(mapDbOrderToFrontendOrder);
             setOrders(mappedOrders);
@@ -328,7 +336,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         // 3. Fetch user notifications
         const notifRes = await fetch('/api/notifications', { headers: authHeader });
         if (notifRes.ok) {
-          const notifData = await notifRes.json();
+          const notifData = await readApiJson(notifRes, '/api/notifications');
           if (notifData.success && Array.isArray(notifData.notifications)) {
             const mappedNotifs = notifData.notifications.map((n: any) => ({
               id: n.id,
@@ -347,7 +355,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       // 4. Fetch RFQ Requirements
       const rfqRes = await fetch('/api/rfq/requirements');
       if (rfqRes.ok) {
-        const rfqData = await rfqRes.json();
+        const rfqData = await readApiJson(rfqRes, '/api/rfq/requirements');
         if (rfqData.success && Array.isArray(rfqData.requirements) && rfqData.requirements.length > 0) {
           const mappedRfqs = rfqData.requirements.map((r: any) => ({
             id: r.id,

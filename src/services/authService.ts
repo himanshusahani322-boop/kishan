@@ -2,6 +2,18 @@ import { User, UserRole, SignupData, LoginCredentials, AuthResponse } from '../t
 
 const API_BASE = '/api/auth';
 
+async function readJsonResponse(res: Response, endpoint: string): Promise<any> {
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    const bodyPreview = (await res.text()).slice(0, 120).replace(/\s+/g, ' ');
+    throw new AuthError(
+      `The API endpoint ${endpoint} returned ${contentType || 'a non-JSON response'} (HTTP ${res.status}). ${bodyPreview}`,
+      res.status
+    );
+  }
+  return res.json();
+}
+
 export class AuthError extends Error {
   status?: number;
   constructor(message: string, status?: number) {
@@ -20,7 +32,7 @@ export const authService = {
       body: JSON.stringify(data)
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/signup`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Failed to complete registration.', res.status);
     }
@@ -35,7 +47,7 @@ export const authService = {
       body: JSON.stringify(credentials)
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/login`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Invalid credentials.', res.status);
     }
@@ -51,7 +63,7 @@ export const authService = {
       }
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/me`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Session expired. Please sign in again.', res.status);
     }
@@ -69,7 +81,7 @@ export const authService = {
       body: JSON.stringify(updates)
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/profile`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Failed to update profile.', res.status);
     }
@@ -90,7 +102,7 @@ export const authService = {
       body: JSON.stringify({ identifier })
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/forgot-password`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Failed to request password reset.', res.status);
     }
@@ -109,7 +121,7 @@ export const authService = {
       body: JSON.stringify(data)
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/reset-password`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Failed to reset password.', res.status);
     }
@@ -131,7 +143,7 @@ export const authService = {
       body: JSON.stringify(payload)
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/google`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Google sign-in failed.', res.status);
     }
@@ -143,7 +155,7 @@ export const authService = {
     try {
       const res = await fetch(`${API_BASE}/config`);
       if (res.ok) {
-        return await res.json();
+        return await readJsonResponse(res, `${API_BASE}/config`);
       }
     } catch {
       // Fallback
@@ -158,7 +170,7 @@ export const authService = {
         'Authorization': `Bearer ${token}`
       }
     });
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/check-access/${requiredRole}`);
     return {
       authorized: res.ok && result.authorized,
       userRole: result.userRole
@@ -176,11 +188,10 @@ export const authService = {
       body: JSON.stringify({ role })
     });
 
-    const result = await res.json();
+    const result = await readJsonResponse(res, `${API_BASE}/update-role`);
     if (!res.ok) {
       throw new AuthError(result.error || 'Failed to update role.', res.status);
     }
     return { user: result.user, token: result.token };
   }
 };
-
