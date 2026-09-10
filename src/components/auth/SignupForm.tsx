@@ -119,6 +119,15 @@ export const SignupForm: React.FC<SignupFormProps> = ({
     setLocalError(null);
     clearError();
 
+    if (role === 'farmer' && isVerifiedFPO && !fpoName.trim()) {
+      setLocalError(
+        isHindi
+          ? 'कृपया पंजीकृत FPO संगठन का नाम दर्ज करें।'
+          : 'Please enter the registered FPO organization name.'
+      );
+      return;
+    }
+
     try {
       const res = await signup({
         fullName: fullName.trim(),

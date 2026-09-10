@@ -26,6 +26,31 @@ const defaultAvatars: Record<UserRole, string> = {
   admin: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80'
 };
 
+/**
+ * Firestore rejects `undefined` at every nesting level. Optional profile
+ * fields must therefore be omitted rather than assigned `undefined`.
+ */
+function omitUndefined<T>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map(omitUndefined) as T;
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>)
+        .filter(([, fieldValue]) => fieldValue !== undefined)
+        .map(([key, fieldValue]) => [key, omitUndefined(fieldValue)])
+    ) as T;
+  }
+
+  return value;
+}
+
+function optionalText(value?: string): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed || undefined;
+}
+
 // Known demo accounts with guaranteed data
 const demoAccounts: Record<string, { user: User; password: string }> = {
   'rameshwar.patel@kisansaathi.in': {
@@ -127,6 +152,13 @@ export const firebaseAuthService = {
    */
   async signup(data: SignupData): Promise<AuthResponse> {
     const cleanEmail = data.email.trim().toLowerCase();
+    const fpoName = optionalText(data.fpoName);
+    const businessName = optionalText(data.businessName);
+    const businessType = optionalText(data.businessType);
+
+    if (data.role === 'farmer' && data.isVerifiedFPO && !fpoName) {
+      throw new Error('Please enter the registered FPO organization name.');
+    }
 
     // 1. If Firebase is configured with real credentials, perform real Firebase Auth & Firestore
     if (isFirebaseConfigured()) {
@@ -136,7 +168,7 @@ export const firebaseAuthService = {
         const fbUser = userCredential.user;
         const idToken = await fbUser.getIdToken();
 
-        const newUser: User = {
+        const newUser = omitUndefined({
           id: fbUser.uid,
           name: data.fullName.trim(),
           phone: data.phone.trim(),
@@ -150,28 +182,28 @@ export const firebaseAuthService = {
             pincode: '466001'
           },
           isVerifiedFPO: data.isVerifiedFPO || false,
-          fpoName: data.fpoName || undefined,
-          businessName: data.businessName || undefined,
-          businessType: data.businessType || undefined,
+          ...(fpoName ? { fpoName } : {}),
+          ...(businessName ? { businessName } : {}),
+          ...(businessType ? { businessType } : {}),
           rating: 5.0,
           totalRatingsCount: 1,
           joinedDate: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
           createdAt: new Date().toISOString()
-        };
+        }) as User;
 
         // Save User Document to Firestore: collection 'users'
-        await setDoc(doc(firestore, 'users', fbUser.uid), newUser);
+        await setDoc(doc(firestore, 'users', fbUser.uid), omitUndefined(newUser));
 
         // Save associated profile if Farmer
         if (data.role === 'farmer') {
-          await setDoc(doc(firestore, 'farmerProfiles', fbUser.uid), {
+          await setDoc(doc(firestore, 'farmerProfiles', fbUser.uid), omitUndefined({
             userId: fbUser.uid,
             farmName: `${data.fullName}'s Farm`,
             village: newUser.location.villageOrCity,
             district: newUser.location.district,
             state: newUser.location.state,
             pincode: newUser.location.pincode,
-            fpoName: data.fpoName || '',
+            ...(fpoName ? { fpoName } : {}),
             isVerifiedFPO: Boolean(data.isVerifiedFPO),
             primaryApmcMandi: 'Sehore APMC Mandi',
             farmingType: 'conventional',
@@ -181,7 +213,7 @@ export const firebaseAuthService = {
             totalOrdersFulfilled: 0,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
-          });
+          }));
         }
 
         return {
@@ -309,7 +341,7 @@ export const firebaseAuthService = {
             joinedDate: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
             createdAt: new Date().toISOString()
           };
-          await setDoc(userDocRef, userProfile);
+          await setDoc(userDocRef, omitUndefined(userProfile));
         }
 
         return {
@@ -360,10 +392,10 @@ export const firebaseAuthService = {
     }
     const { firestore } = getFirebaseServices();
     const userDocRef = doc(firestore, 'users', uid);
-    await updateDoc(userDocRef, {
+    await updateDoc(userDocRef, omitUndefined({
       ...updates,
       updatedAt: new Date().toISOString()
-    });
+    }));
 
     const refreshed = await getDoc(userDocRef);
     return refreshed.data() as User;
@@ -433,7 +465,7 @@ export const firebaseAuthService = {
         joinedDate: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
         createdAt: new Date().toISOString()
       };
-      await setDoc(userDocRef, user);
+      await setDoc(userDocRef, omitUndefined(user));
     }
 
     return { user, token: idToken };
