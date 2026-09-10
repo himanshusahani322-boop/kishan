@@ -5,10 +5,15 @@ import { useApp } from '../context/AppContext';
 import { AppShell } from '../components/ui/AppShell';
 import { AuthLoadingScreen } from '../components/ui/AuthLoadingScreen';
 
-// --- Auth Pages ---
-import { LoginPage } from '../pages/auth/LoginPage';
-import { SignupPage } from '../pages/auth/SignupPage';
-import { RoleSelectionPage } from '../pages/auth/RoleSelectionPage';
+// ─── Temporary access setting ────────────────────────────────────────────────
+// Set this to true to restore the existing login, signup, and role-selection flow.
+// The auth pages/components remain in the project; they are only disabled here.
+const LOGIN_ENABLED = false;
+
+// --- Auth Pages (temporarily disabled; restore these imports with LOGIN_ENABLED) ---
+// import { LoginPage } from '../pages/auth/LoginPage';
+// import { SignupPage } from '../pages/auth/SignupPage';
+// import { RoleSelectionPage } from '../pages/auth/RoleSelectionPage';
 
 // --- Buyer Pages ---
 import { BuyerHomePage } from '../pages/buyer/BuyerHomePage';
@@ -45,13 +50,20 @@ import { AIAssistantPage } from '../pages/farmer/AIAssistantPage';
 // --- Admin Pages ---
 import { AdminPortalPage } from '../pages/admin/AdminPortalPage';
 
-// --- Error Pages ---
-import { UnauthorizedPage } from '../pages/UnauthorizedPage';
+// --- Error Pages (temporarily disabled with the login flow) ---
+// import { UnauthorizedPage } from '../pages/UnauthorizedPage';
 
 // ─── Role-Based Root Redirect ─────────────────────────────────────────────────
 const RootRedirect: React.FC = () => {
   const { user, isAuthenticated } = useAuth();
   const { currentRole } = useApp();
+
+  // Temporary login bypass: open the selected demo role directly.
+  if (!LOGIN_ENABLED) {
+    if (currentRole === 'farmer') return <Navigate to="/farmer" replace />;
+    if (currentRole === 'admin') return <Navigate to="/admin" replace />;
+    return <Navigate to="/buyer" replace />;
+  }
 
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   const role = user?.role || currentRole;
@@ -61,13 +73,7 @@ const RootRedirect: React.FC = () => {
 };
 
 // ─── Redirect authenticated users away from login/signup ─────────────────────
-const PublicOnlyRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated, user } = useAuth();
-  if (!isAuthenticated) return <>{children}</>;
-  // Already logged in — send to correct dashboard
-  const dest = user?.role === 'farmer' ? '/farmer' : user?.role === 'admin' ? '/admin' : '/buyer';
-  return <Navigate to={dest} replace />;
-};
+// Temporarily unused while LOGIN_ENABLED is false.
 
 // ─── Auth Guard: requires login, optionally requires specific roles ────────────
 const RequireAuth: React.FC<{
@@ -75,7 +81,15 @@ const RequireAuth: React.FC<{
   allowedRoles?: string[];
 }> = ({ children, allowedRoles }) => {
   const { isAuthenticated, user } = useAuth();
+  const { currentRole } = useApp();
   const location = useLocation();
+
+  // Temporary login bypass: allow every existing page without sending the user
+  // to the Access Restricted screen. Role-specific UI still follows the selected
+  // role in AppContext, but routes are not blocked while login is disabled.
+  if (!LOGIN_ENABLED) {
+    return <>{children}</>;
+  }
 
   if (!isAuthenticated) {
     // Preserve intended destination so login can redirect back
@@ -113,11 +127,11 @@ export const AppRouter: React.FC = () => {
       {/* Root redirect */}
       <Route path="/" element={<RootRedirect />} />
 
-      {/* ── Unauthorized Page ── */}
-      <Route path="/unauthorized" element={<UnauthorizedPage />} />
+      {/* ── Unauthorized Page (temporarily disabled with login) ── */}
+      {/* <Route path="/unauthorized" element={<UnauthorizedPage />} /> */}
 
-      {/* ── Auth Pages (public only — redirect authed users away) ── */}
-      <Route
+      {/* ── Auth Pages (temporarily disabled — restore when LOGIN_ENABLED is true) ── */}
+      {/* <Route
         path="/login"
         element={
           <PublicOnlyRoute>
@@ -146,7 +160,7 @@ export const AppRouter: React.FC = () => {
             </AppShell>
           </RequireAuth>
         }
-      />
+      /> */}
 
       {/* ── Buyer Routes (buyer + admin only) ── */}
       <Route path="/buyer" element={

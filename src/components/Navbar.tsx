@@ -4,6 +4,10 @@ import { useAuth } from '../context/AuthContext';
 import { MandiPriceItem } from '../types';
 import { AppHeader } from './ui';
 
+// Keep the header in demo-access mode while the login screen is disabled in AppRouter.
+// Set to true alongside LOGIN_ENABLED in AppRouter to restore normal authentication UI.
+const LOGIN_ENABLED = false;
+
 interface NavbarProps {
   onOpenCart: () => void;
   onOpenAuth?: (tab?: 'login' | 'signup') => void;
@@ -42,6 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCart, onOpenAuth, onOpenPr
 
   const handleRoleChange = async (newRole: any) => {
     setRole(newRole);
+    if (!LOGIN_ENABLED) return;
     // Also synchronize server-side authentic demo account if user chooses to switch
     await switchAccountForRole(newRole);
   };
@@ -60,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCart, onOpenAuth, onOpenPr
       setActiveView={setActiveView}
       notifications={notifications}
       onMarkNotificationAsRead={markNotificationAsRead}
-      isAuthenticated={isAuthenticated}
+      isAuthenticated={LOGIN_ENABLED ? isAuthenticated : true}
       onOpenAuth={onOpenAuth}
       onOpenProfile={onOpenProfile}
       onLogout={logout}
